@@ -10,7 +10,7 @@ env:
 
 before_install:
   - docker build -t MukulMaheshwari/yaydoc .
-  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/yaydoc; bundle exec foreman start;"
+  - docker run -d -p 127.0.0.1:80:4567 MukulMaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec foreman start;"
   - docker ps -a
   - docker run MukulMaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec rake test"
 
@@ -19,7 +19,6 @@ install:
   - npm install
   - pip install -r requirements.txt
   - sudo apt-get install pandoc
-
 
 script:
   - bash tests/generate_test.sh
