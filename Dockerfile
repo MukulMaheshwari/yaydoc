@@ -1,7 +1,7 @@
 #latest-build
 FROM node:boron
 
-RUN echo deb http://http.debian.net/debian jessie-backports main >> /etc/apt/sources.list
+RUN echo deb http://http.debian.net/debian stable-backports main >> /etc/apt/sources.list
 
 # Update and install packages
 RUN apt-get update && \
