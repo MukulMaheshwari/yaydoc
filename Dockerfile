@@ -5,7 +5,7 @@ RUN echo deb http://http.debian.net/debian stable-backports main >> /etc/apt/sou
 
 # Update and install packages
 RUN apt-get update && \
-    apt-get install -y -t jessie-backports python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
+    apt-get install -y -t stable-backports python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
     rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
