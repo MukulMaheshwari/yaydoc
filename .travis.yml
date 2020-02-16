@@ -8,14 +8,18 @@ env:
     - ENCRYPTION_KEY=ABCGDHEUSHFKIRMJSDFIUTEHFNGOWPOR
     - PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
+before_install:
+  - docker build -t MukulMaheshwari/yaydoc .
+  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/yaydoc; bundle exec foreman start;"
+  - docker ps -a
+  - docker run MukulMaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec rake test"
+
 install:
   - nvm install 12.14.1
   - npm install
   - pip install -r requirements.txt
   - sudo apt-get install pandoc
 
-before_script:
-  - curl -L "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/shunit2/shunit2-2.1.6.tgz" | tar zx
 
 script:
   - bash tests/generate_test.sh
