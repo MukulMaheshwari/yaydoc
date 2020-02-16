@@ -9,10 +9,10 @@ env:
     - PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 before_install:
-  - docker build -t mukulmaheshwari/yaydoc .
-  - docker run -d -p 127.0.0.1:80:4567 mukulmaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec foreman start;"
+  - docker build -t https://github.com/MukulMaheshwari/yaydoc.git.
+  - docker run -d -p 127.0.0.1:80:4567 MukulMaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec foreman start;"
   - docker ps -a
-  - docker run mukulmaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec rake test"
+  - docker run MukulMaheshwari/yaydoc /bin/sh -c "cd /root/yaydoc; bundle exec rake test"
 
 install:
   - nvm install 12.14.1
