@@ -24,7 +24,7 @@ COPY requirements.txt /usr/src/app/
 RUN pip install -r /usr/src/app/requirements.txt
 
 # Install Hetzner CLI
-RUN apt install hcloud-cli
+#RUN apt install hcloud-cli
 
 # Bundle app source
 COPY . .
