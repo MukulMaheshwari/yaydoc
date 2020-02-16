@@ -23,7 +23,7 @@ COPY requirements.txt /usr/src/app/
 RUN pip install -r /usr/src/app/requirements.txt
 
 # Install Heroku CLI
-RUN wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+#RUN wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 # Bundle app source
 COPY . .
