@@ -1,5 +1,5 @@
 #latest-build
-FROM node:boron
+FROM node:boron-jessie
 
 RUN echo "deb http://deb.debian.org/debian jessie main\ndeb http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
