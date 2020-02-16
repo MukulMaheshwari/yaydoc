@@ -1,11 +1,11 @@
 #latest-build
 FROM node:boron
 
-RUN echo deb http://http.debian.net/debian stable-backports main >> /etc/apt/sources.list
+RUN echo deb http://http.debian.net/debian jessie main >> /etc/apt/sources.list
 
 # Update and install packages
 RUN apt-get update && \
-    apt-get install -y -t stable-backports python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
+    apt-get install -y -t jessie python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
     rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
@@ -23,8 +23,8 @@ RUN npm install
 COPY requirements.txt /usr/src/app/
 RUN pip install -r /usr/src/app/requirements.txt
 
-# Install Heroku CLI
-#RUN wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+# Install Hetzner CLI
+RUN apt install hcloud-cli
 
 # Bundle app source
 COPY . .
