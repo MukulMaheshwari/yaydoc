@@ -1,3 +1,4 @@
+#latest-build
 FROM node:boron
 
 RUN echo deb http://http.debian.net/debian jessie-backports main >> /etc/apt/sources.list
