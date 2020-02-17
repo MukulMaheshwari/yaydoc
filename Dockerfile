@@ -1,5 +1,5 @@
 #latest-build
-FROM node:boron-jessie
+FROM node:10
 
 RUN echo deb http://http.debian.net/bullseye main >> /etc/apt/sources.list
 
