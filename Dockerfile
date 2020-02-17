@@ -1,7 +1,7 @@
 #latest-build
 FROM node:boron-jessie
 
-RUN echo deb http://http.debian.net/bullseye stretch main >> /etc/apt/sources.list
+RUN echo deb http://http.debian.net/bullseye main >> /etc/apt/sources.list
 
 # Update and install packages
 RUN apt-get update && \
@@ -24,7 +24,7 @@ COPY requirements.txt /usr/src/app/
 RUN pip install -r /usr/src/app/requirements.txt
 
 # Install Hetzner CLI
-#RUN apt install hcloud-cli
+RUN apt install hcloud-cli
 
 # Bundle app source
 COPY . .
