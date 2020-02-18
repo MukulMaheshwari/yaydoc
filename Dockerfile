@@ -1,6 +1,6 @@
 #latest-build
 FROM node:boron-jessie
-RUN echo deb http://http.debian.net/stectch main >> /etc/apt/sources.list
+RUN echo deb http://http.debian.net/stretch main >> /etc/apt/sources.list
 
 # Update and install packages
 RUN apt-get update && \
