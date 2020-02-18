@@ -1,11 +1,10 @@
 #latest-build
-FROM node:10
-
-RUN echo deb http://http.debian.net/bullseye main >> /etc/apt/sources.list
+FROM node:boron-jessie
+RUN echo deb http://http.debian.net/stectch main >> /etc/apt/sources.list
 
 # Update and install packages
 RUN apt-get update && \
-    apt-get install -y -t bullseye python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
+    apt-get install -y -t stretch python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
     rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
