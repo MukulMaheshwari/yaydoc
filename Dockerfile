@@ -1,7 +1,7 @@
 #latest-build
 FROM node:boron-jessie
-RUN echo deb http://http.debian.net/debian stretch main >> /etc/apt/sources.list && deb-src http://http.debian.net/debian stretch main >> /etc/apt/sources.list
-
+RUN echo deb http://http.debian.net/debian stretch main >> /etc/apt/sources.list 
+RUN echo deb-src http://http.debian.net/debian stretch main >> /etc/apt/sources.list
 # Update and install packages
 RUN apt-get update && \
     apt-get install -y -t stretch python python-dev python-pip python-virtualenv zip rsync openjdk-8-jdk && \
