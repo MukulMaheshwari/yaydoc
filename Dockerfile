@@ -1,6 +1,6 @@
 #latest-build
 FROM node:boron-jessie
-RUN echo deb http://http.debian.net/debian stretch main >> /etc/apt/sources.list
+RUN echo deb http://http.debian.net/debian stretch main >> /etc/apt/sources.list && deb-src http://http.debian.net/debian stretch main >> /etc/apt/sources.list
 
 # Update and install packages
 RUN apt-get update && \
@@ -24,6 +24,7 @@ RUN pip install -r /usr/src/app/requirements.txt
 
 # Install Hetzner CLI
 RUN apt-get install build-essential curl file git
+RUN su && apt-get update
 RUN apt-get install sudo -y
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
