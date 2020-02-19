@@ -24,10 +24,11 @@ RUN pip install -r /usr/src/app/requirements.txt
 
 # Install Hetzner CLI
 RUN apt-get install build-essential curl file git
-RUN git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
-RUN mkdir ~/.linuxbrew/bin
-RUN ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
-RUN eval $(~/.linuxbrew/bin/brew shellenv)
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 RUN brew install hcloud
 # Bundle app source
 COPY . .
