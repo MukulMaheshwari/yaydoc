@@ -23,7 +23,7 @@ COPY requirements.txt /usr/src/app/
 RUN pip install -r /usr/src/app/requirements.txt
 
 # Install Hetzner CLI
-RUN sudo apt-get install build-essential curl file git
+RUN apt-get install build-essential curl file git
 RUN git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
 RUN mkdir ~/.linuxbrew/bin
 RUN ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
